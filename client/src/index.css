@@ -128,9 +128,7 @@ li a:hover {
   font-weight: bolder;
   display: inline-block;
   font-size: 13px;
-  margin: 50px;
-  
+  margin: 4px 2px;
   box-shadow: 3px 3px white;
-  position: relative;
- 
+
 }
