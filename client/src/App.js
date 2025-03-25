@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from "react";
+import StockNews from './StockNews';  // Since it's in the 'server' folder
 
-function App() {
+
+const App = () => {
+  const [symbol, setSymbol] = useState("TSLA"); // Example: Tesla stock
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input
+        type="text"
+        value={symbol}
+        onChange={(e) => setSymbol(e.target.value)}
+        placeholder="Enter stock symbol"
+      />
+      <StockNews symbol={symbol} />
     </div>
   );
-}
+};
+
+
 
 export default App;
