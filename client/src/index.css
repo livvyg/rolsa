@@ -2,10 +2,6 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-
-
-
-
 .logo {
   padding: 5px;
   margin-right: 5px;
@@ -15,64 +11,62 @@ body {
 .navbar {
   background-color: #D8F1A0;
   border: #D8F1A0;
-  
-
 }
 
 li a {
-  color:black !important;
+  color: black !important;
 }
 
 .active a {
-  color: rgb(255, 255, 255) !important; 
-  
+  color: rgb(255, 255, 255) !important;
 }
 
 li a {
-  color: blue; 
+  color: blue;
 }
 
 li a:hover {
-  color: green !important; 
+  color: green !important;
 }
-
 
 .main1 {
   display: flex;
-  justify-content: space-between; /* This will push the image to the right */
-  align-items: center; /* This vertically centers the image with the text */
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   background-color: #F3C17B;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  position: relative; /* Make sure it's the relative container for overlay */
 }
 
-.text-container {
+.col-xs-6 {
   flex: 1;
-  padding-right: 20px; /* Optional: Add some spacing between text and image */
+  padding-right: 20px;
 }
 
 .solar {
   width: 40%;
+  height: 40%;
+  max-height: 100%;
   max-width: 100%;
-  height: auto; /* Ensure the aspect ratio is maintained */
   border: 2px solid black;
 }
+
 .main1 h1 {
-  font-size: 2em; 
-  color: #000000; 
+  font-size: 2em;
+  color: #000000;
 }
 
 .main1 p {
-  font-size: 1em; 
-  line-height: 1.6; 
-  color: #000000; 
-
+  font-size: 1em;
+  line-height: 1.6;
+  color: #000000;
 }
 
 .readmore1 {
   background-color: #21a57f !important;
-  color:black;
-  border-style:double;
+  color: black;
+  border-style: double;
   border-color: black;
   padding: 13px 32px;
   text-align: center;
@@ -83,4 +77,29 @@ li a:hover {
   transition-duration: 0.4s;
   cursor: pointer;
   box-shadow: 3px 3px white;
+}
+
+/* Overlay Styling */
+.overlay {
+  position: absolute; /* Positioning it over the image */
+  top: 0;
+  right: 0;
+  width: 35%; /* Adjust size as needed */
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Make it invisible initially */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+.overlay:hover {
+  opacity: 1; /* Show overlay on hover */
 }
