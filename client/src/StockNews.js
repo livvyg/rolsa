@@ -1,48 +1,51 @@
-// StockInfo.js
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+// StockNews.js
+import React, { useEffect, useState } from "react";
+import axios from "axios"; // To make API requests
 
-const StockInfo = ({ symbol }) => {
+const StockNews = ({ symbol }) => {
   const [stockData, setStockData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Fetch stock data whenever the symbol changes
   useEffect(() => {
     const fetchStockData = async () => {
       try {
-        // Make a request to the backend server instead of Alpha Vantage directly
-        const response = await axios.get(`/api/stock/${symbol}`);
+        setLoading(true);
+        const response = await axios.get(`http://localhost:5000/api/stock/${symbol}`);
         setStockData(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching stock data:", error);
-        setError("Error fetching stock data");
+      } catch (err) {
+        setError("Failed to fetch stock data.");
+      } finally {
         setLoading(false);
       }
     };
 
-    fetchStockData();
-  }, [symbol]);
+    if (symbol) {
+      fetchStockData();
+    }
+  }, [symbol]); // Re-fetch when symbol changes
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  // Show loading or error state
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  // Assuming stock data is in 'Time Series (5min)' field for Alpha Vantage API
-  const latestData = stockData["Time Series (5min)"];
-  const latestTime = Object.keys(latestData)[0];
-  const latestStock = latestData[latestTime];
+  if (error) {
+    return <div>{error}</div>;
+  }
 
+  // Render the stock data
   return (
     <div>
-      <h3>Stock Info for {symbol}</h3>
-      <p>Time: {latestTime}</p>
-      <p>Open: {latestStock["1. open"]}</p>
-      <p>High: {latestStock["2. high"]}</p>
-      <p>Low: {latestStock["3. low"]}</p>
-      <p>Close: {latestStock["4. close"]}</p>
-      <p>Volume: {latestStock["5. volume"]}</p>
+      <h3>Stock Data for {symbol}</h3>
+      {stockData ? (
+        <pre>{JSON.stringify(stockData, null, 2)}</pre> // Display raw stock data (you can format it)
+      ) : (
+        <p>No data available.</p>
+      )}
     </div>
   );
 };
 
-export default StockInfo;
+export default StockNews;

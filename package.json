@@ -8,23 +8,13 @@
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.8.4",
-    "browserify-zlib": "^0.2.0",
-    "buffer": "^6.0.3",
     "cors": "^2.8.5",
-    "crypto-browserify": "^3.12.1",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "git": "^0.1.5",
-    "path-browserify": "^1.0.1",
-    "querystring-es3": "^0.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
-    "recharts": "^2.15.1",
-    "stream-browserify": "^3.0.0",
-    "stream-http": "^3.2.0",
-    "url": "^0.11.4",
-    "util": "^0.12.5",
-    "web-vitals": "^2.1.4"
+    "recharts": "^2.15.1"
   },
   "scripts": {
     "start": "node server/index.js",
@@ -32,6 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": [
       "react-app",
