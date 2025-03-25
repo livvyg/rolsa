@@ -2,10 +2,6 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-
-
-
-
 .logo {
   padding: 5px;
   margin-right: 5px;
@@ -15,66 +11,66 @@ body {
 .navbar {
   background-color: #D8F1A0;
   border: #D8F1A0;
-  
-
 }
 
 li a {
-  color:black !important;
+  color: black !important;
 }
 
 .active a {
-  color: rgb(255, 255, 255) !important; 
-  
+  color: rgb(255, 255, 255) !important;
 }
 
 li a {
-  color: blue; 
+  color: blue;
 }
 
 li a:hover {
-  color: green !important; 
+  color: green !important;
 }
-
 
 .main1 {
   display: flex;
-  justify-content: space-between; /* This will push the image to the right */
-  align-items: center; /* This vertically centers the image with the text */
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   background-color: #F3C17B;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  width: 75vw;
+  float: left;
 }
 
 .col-xs-6 {
   flex: 1;
-  padding-right: 20px; /* Optional: Add some spacing between text and image */
+  padding-right: 20px;
+  
 }
 
 .solar {
-  width: 40%;
-  height: 40%;
+  width: 35%;  
+  height: auto; 
   max-height: 100%;
   max-width: 100%;
   border: 2px solid black;
 }
+
+
 .main1 h1 {
-  font-size: 2em; 
-  color: #000000; 
+  font-size: 2em;
+  color: #000000;
   text-align: center;
 }
 
 .main1 p {
-  font-size: 1em; 
-  line-height: 1.6; 
-  color: #000000; 
-
+  font-size: 1em;
+  line-height: 1.6;
+  color: #000000;
 }
 
 .readmore1 {
   background-color: #21a57f !important;
-  color:black;
-  border-style:double;
+  color: black;
+  border-style: double;
   border-color: black;
   padding: 13px 32px;
   text-align: center;
@@ -82,9 +78,40 @@ li a:hover {
   display: inline-block;
   font-size: 13px;
   margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
   box-shadow: 3px 3px white;
 }
 
+.sidebar {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  width: 25vw;
+  height: 40%;
+  background-color: #D8F1A0;
+  padding: 20px;
+  box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3);
+}
 
+.sidebar h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+  color: #21a57f;
+}
