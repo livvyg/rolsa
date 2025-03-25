@@ -38,13 +38,25 @@ li a:hover {
 
 
 .main1 {
-
-  background-color: #F3C17B;; 
-  padding: 20px; 
+  display: flex;
+  justify-content: space-between; /* This will push the image to the right */
+  align-items: center; /* This vertically centers the image with the text */
+  padding: 20px;
+  background-color: #F3C17B;
   font-family: Georgia, 'Times New Roman', Times, serif;
-
 }
 
+.text-container {
+  flex: 1;
+  padding-right: 20px; /* Optional: Add some spacing between text and image */
+}
+
+.solar {
+  width: 50%;
+  max-width: 100%;
+  height: auto; /* Ensure the aspect ratio is maintained */
+  border: 2px solid black;
+}
 .main1 h1 {
   font-size: 2em; 
   color: #000000; 
@@ -54,6 +66,7 @@ li a:hover {
   font-size: 1em; 
   line-height: 1.6; 
   color: #000000; 
+
 }
 
 .readmore1 {
@@ -71,4 +84,3 @@ li a:hover {
   cursor: pointer;
   box-shadow: 3px 3px white;
 }
-
