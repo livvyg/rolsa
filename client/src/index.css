@@ -95,6 +95,8 @@ li a:hover {
 .sidebar h2 {
   font-size: 1.5em;
   margin-bottom: 20px;
+  text-align: center;
+  color: black
 }
 
 .sidebar ul {
@@ -114,4 +116,21 @@ li a:hover {
 
 .sidebar ul li a:hover {
   color: #21a57f;
+}
+
+.readmore2 {
+  background-color: #21a57f !important;
+  color: black;
+  border-style: double;
+  border-color: black;
+  padding: 13px 32px;
+  text-align: center;
+  font-weight: bolder;
+  display: inline-block;
+  font-size: 13px;
+  margin: 50px;
+  
+  box-shadow: 3px 3px white;
+  position: relative;
+ 
 }
