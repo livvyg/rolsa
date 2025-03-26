@@ -36,7 +36,6 @@
         </div>
       </div>
     </nav>
-
     <div class="container main1">
       <div class="row">
         <div class="col-xs-6">
@@ -50,7 +49,7 @@
       </div>
     </div>
 
-    <!-- Sidebar for Live Green Energy News -->
+
     <div class="sidebar">
       <h2>Live Green Market News</h2>
       <ul id="news-list">
@@ -129,17 +128,28 @@
             <h1>£1.1M</h1>
             <p>Estimated Rolsa customer savings</p>
           </div>
-        </div> <!-- This closing div was missing earlier -->
+        </div> 
         <div class="col-xs-6 col-md-3">
           <div class="stat4">
             <h1>43,770</h1>
             <p>Satisfied customers</p>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="carousel-container main4">
+      <div class="carousel">
+          
+      </div>
+      <button class="nav-button prev">&#8249;</button>
+      <button class="nav-button next">&#8250;</button>
     </div>
     
     
     <script>
-      // Function to fetch stock data and display it
+      
       function fetchStockData() {
         const symbol = document.getElementById("stockSymbol").value;
         if (!symbol) {
@@ -147,7 +157,7 @@
           return;
         }
 
-        // Fetch stock data from the server (assuming your backend is running at localhost:5000)
+       
         fetch(`http://localhost:5000/api/stock/${symbol}`)
           .then(response => response.json())
           .then(data => {
@@ -159,14 +169,14 @@
           });
       }
 
-      // Function to display the stock data in a chart
+      
       function displayChart(data) {
         const ctx = document.getElementById("stockChart");
         const chartData = {
-          labels: ["Open", "High", "Low", "Current"], // Labels for the chart (Open, High, Low, Current)
+          labels: ["Open", "High", "Low", "Current"], 
           datasets: [{
             label: 'Stock Prices',
-            data: [data.o, data.h, data.l, data.c], // Using Open, High, Low, Current prices
+            data: [data.o, data.h, data.l, data.c], 
             borderColor: 'rgba(75, 192, 192, 1)',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             fill: true
@@ -185,9 +195,9 @@
           }
         };
 
-        // Create a new chart (if one exists, it will update)
+        
         if (window.myChart) {
-          window.myChart.destroy(); // Destroy previous chart if exists
+          window.myChart.destroy(); 
         }
         window.myChart = new Chart(ctx, config);
       }
@@ -206,6 +216,87 @@
           }
         });
 }
+
+const carousel = document.querySelector('.carousel');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+const testimonials = [
+    {
+        name: "John Doe",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+        name: "Jane Smith",
+        text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+        name: "Bob Johnson",
+        text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    },
+    {
+        name: "Alice Brown",
+        text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+        name: "Charlie Davis",
+        text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+    }
+];
+
+let currentIndex = 0;
+
+function createTestimonialElement(testimonial, index) {
+    const div = document.createElement('div');
+    div.className = 'testimonial';
+    div.innerHTML = `
+        <img src="https://picsum.photos/80?random=${index}" alt="${testimonial.name}">
+        <h3>${testimonial.name}</h3>
+        <p>${testimonial.text}</p>
+    `;
+    return div;
+}
+
+function updateCarousel() {
+    carousel.innerHTML = '';
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+        carousel.appendChild(createTestimonialElement(testimonials[currentIndex], currentIndex));
+    } else {
+        const prevIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+        const nextIndex = (currentIndex + 1) % testimonials.length;
+
+        carousel.appendChild(createTestimonialElement(testimonials[prevIndex], prevIndex));
+        const activeTestimonial = createTestimonialElement(testimonials[currentIndex], currentIndex);
+        activeTestimonial.classList.add('active');
+        carousel.appendChild(activeTestimonial);
+        carousel.appendChild(createTestimonialElement(testimonials[nextIndex], nextIndex));
+    }
+}
+
+function showNext() {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    updateCarousel();
+}
+
+function showPrev() {
+    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    updateCarousel();
+}
+
+nextBtn.addEventListener('click', showNext);
+prevBtn.addEventListener('click', showPrev);
+
+// Responsive behavior
+function handleResize() {
+    updateCarousel();
+}
+
+window.addEventListener('resize', handleResize);
+
+// Initial setup
+updateCarousel();
       
     </script>
   </body>
