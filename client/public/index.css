@@ -3,6 +3,11 @@ body {
   background-color: #D8F1A0;
 }
 
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
 .logo {
   padding: 5px;
   margin-right: 5px;
@@ -90,7 +95,7 @@ li a:hover {
   background-color: #FE9C8A !important;
   border-color: #000;
   color: black;
-  margin-left: 87%;
+  float: right;
 
 }
 
