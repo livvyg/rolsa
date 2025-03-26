@@ -1,6 +1,6 @@
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #D8F1A0;
+    background-color: #FE9C8A;
   }
   
   .logo {
@@ -32,3 +32,29 @@ body {
     color: green !important;
   }
   
+
+  .container {
+    width: 50%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    background: #D8F1A0;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+canvas {
+    margin-top: 20px;
+}

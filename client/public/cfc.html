@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-inverse justify-content-center">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -38,4 +39,67 @@
         </div>
       </div>
     </nav>
-</body>
+
+    <!-- Carbon Footprint Calculator Form -->
+    <div class="container">
+      <h2 class="text-center">Carbon Footprint Calculator</h2>
+      <form id="carbonForm">
+        <div class="form-group">
+          <label for="electricity">Electricity Usage (kWh per month):</label>
+          <input type="number" class="form-control" id="electricity" placeholder="e.g., 200" required>
+        </div>
+
+        <div class="form-group">
+          <label for="gasoline">Fuel Consumption (liters per month):</label>
+          <input type="number" class="form-control" id="gasoline" placeholder="e.g., 50" required>
+        </div>
+
+        <div class="form-group">
+          <label for="flights">Flights Taken (per year):</label>
+          <input type="number" class="form-control" id="flights" placeholder="e.g., 2" required>
+        </div>
+
+        <div class="form-group">
+          <label for="food">Food Consumption (kg per month):</label>
+          <input type="number" class="form-control" id="food" placeholder="e.g., 30" required>
+        </div>
+
+        <div class="form-group">
+          <label for="waste">Waste Generated (kg per month):</label>
+          <input type="number" class="form-control" id="waste" placeholder="e.g., 10" required>
+        </div>
+
+        <button type="button" class="btn btn-success btn-block" onclick="calculateFootprint()">Calculate</button>
+      </form>
+
+      <h3 class="text-center" id="result">Your Carbon Footprint: 0 kg CO₂e</h3>
+      
+      <!-- Carbon Footprint Breakdown Explanation -->
+      <div id="explanation" style="display: none;">
+        <h4>How Your Carbon Footprint is Measured:</h4>
+        <ul>
+          <li><strong>Electricity:</strong> Each kWh of electricity typically produces 0.4 kg CO₂e.</li>
+          <li><strong>Fuel:</strong> Burning 1 liter of gasoline produces about 2.3 kg CO₂e.</li>
+          <li><strong>Flights:</strong> Each flight taken emits roughly 250 kg CO₂e.</li>
+          <li><strong>Food:</strong> The carbon footprint of food varies but typically averages 3 kg CO₂e per kg of food.</li>
+          <li><strong>Waste:</strong> Generating 1 kg of waste is estimated to emit 2.5 kg CO₂e.</li>
+        </ul>
+      </div>
+
+      <h4 id="adviceTitle" style="display: none;" class="text-center">Advice for Reducing Your Carbon Footprint:</h4>
+      <div id="advice" class="text-center"></div>
+
+      <!-- Chart Section -->
+      <canvas id="carbonChart"></canvas>
+    </div>
+
+    <script src="cfc.js"></script>
+
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+      <div class="container text-center">
+        <img src="icon.png" alt="logo" width="50px">
+        <small>Copyright &copy; Rolsa Technologies</small>
+      </div>
+    </footer>
+  </body>
+</html>
