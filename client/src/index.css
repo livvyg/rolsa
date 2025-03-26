@@ -1,5 +1,6 @@
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #D8F1A0;
 }
 
 .logo {
@@ -11,6 +12,8 @@ body {
 .navbar {
   background-color: #D8F1A0;
   border: #D8F1A0;
+  width: 100vw;
+  
 }
 
 li a {
@@ -36,7 +39,7 @@ li a:hover {
   padding: 20px;
   background-color: #F3C17B;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  width: 75vw;
+  width: 100vw;
   float: left;
 }
 
@@ -79,9 +82,21 @@ li a:hover {
   box-shadow: 3px 3px white;
 }
 
+.sidebar-hidden {
+  display: none;
+}
+
+.btn  {
+  background-color: #FE9C8A !important;
+  border-color: #000;
+  color: black;
+  margin-left: 87%;
+
+}
+
 .sidebar {
   position: fixed;
-  top: 70px;
+  top: 103px;
   right: 0;
   width: 20vw;
   height: 57%;
@@ -157,7 +172,7 @@ li a:hover {
   padding: 20px;
   background-color: #FE9C8A;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  width: 75vw;
+  width: 100vw;
   float: left;
 }
 
@@ -169,7 +184,7 @@ li a:hover {
 
 .main2 p {
   font-size: 1.3em;
-  line-height: 1.6;
+  line-height: 2;
   color: #000000;
 }
 
@@ -205,10 +220,15 @@ li a:hover {
   align-items: center;
   padding: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  width: 75vw;
+  width: 100vw;
   float: left;
   color: black;
+  
 
+}
+
+.main3 h1, p {
+  text-align: center;
 }
 
 .main4 {
@@ -218,15 +238,14 @@ li a:hover {
   align-items: center;
   padding: 20px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  width: 75vw;
+  width: 1000vw;
   float: left;
   color: black;
 
 }
 
 .carousel-container {
-  width: 75vw;
-  max-width: 1200px;
+  width: 100vw;
   overflow: hidden;
   position: relative;
   background-color: #F3C17B;
@@ -315,3 +334,4 @@ li a:hover {
       z-index: 1;
   }
 }
+

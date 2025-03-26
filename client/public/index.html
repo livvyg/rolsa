@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="index.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
   </head>
   <body>
     <nav class="navbar navbar-inverse justify-content-center">
@@ -36,6 +36,7 @@
         </div>
       </div>
     </nav>
+    <button id="sidebar-toggle" class="btn btn-info">Toggle Sidebar</button>
     <div class="container main1">
       <div class="row">
         <div class="col-xs-6">
@@ -49,7 +50,7 @@
       </div>
     </div>
 
-
+  
     <div class="sidebar">
       <h2>Live Green Market News</h2>
       <ul id="news-list">
@@ -68,44 +69,49 @@
           <p>Renewable energy is energy derived from natural sources that are replenished at a higher rate than they are consumed. Sunlight and wind, for example, are such sources that are constantly being replenished. Renewable energy sources are plentiful and all around us. Fossil fuels - coal, oil and gas - on the other hand, are <strong>non-renewable</strong> resources that take hundreds of millions of years to form. </p>
           <p>Fossil fuels, when burned to produce energy, cause harmful greenhouse gas emissions, such as carbon dioxide. Generating renewable energy creates far lower emissions than burning fossil fuels. Transitioning from fossil fuels, which currently account for the lion’s share of emissions, to renewable energy is key to addressing the climate crisis.</p>
           <p>Renewables are now cheaper in most countries, and generate three times more jobs than fossil fuels.</p>
-            
+          <p>The global renewable energy market, valued at USD 954 billion in 2023, is projected to grow to USD 1,574.17 billion by 2032, with a CAGR of 5.56%. China is a major player, accounting for a large share of global renewable capacity deployment.</p>
           <input class="readmore1" type="submit" value="Read More"/>
         </div>
         <img src="hydro.png" class="sidepic" alt="hydroelectric power dam">
+    
+      
         <button type="button" class="collapsible">Hydro Power</button>
-          <div class="content">
-            <p>Hydropower harnesses the energy of water moving from higher to lower elevations. It can be generated from reservoirs and rivers. Reservoir hydropower plants rely on stored water in a reservoir, while run-of-river hydropower plants harness energy from the available flow of the river.
-
-              Hydropower reservoirs often have multiple uses - providing drinking water, water for irrigation, flood and drought control, navigation services, as well as energy supply.
-              
-              Hydropower currently is the largest source of renewable energy in the electricity sector. It relies on generally stable rainfall patterns, and can be negatively impacted by climate-induced droughts or changes to ecosystems which impact rainfall patterns.
-              
-              The infrastructure needed to create hydropower can also impact on ecosystems in adverse ways. For this reason, many consider small-scale hydro a more environmentally-friendly option, and especially suitable for communities in remote locations..</p>
-          </div>
-        <br>
-        <br>
+        <div class="content">
+          <p>Hydropower harnesses the energy of water moving from higher to lower elevations. It can be generated from reservoirs and rivers. Reservoir hydropower plants rely on stored water in a reservoir, while run-of-river hydropower plants harness energy from the available flow of the river.
+    
+            Hydropower reservoirs often have multiple uses - providing drinking water, water for irrigation, flood and drought control, navigation services, as well as energy supply.
+    
+            Hydropower currently is the largest source of renewable energy in the electricity sector. It relies on generally stable rainfall patterns, and can be negatively impacted by climate-induced droughts or changes to ecosystems which impact rainfall patterns.
+    
+            The infrastructure needed to create hydropower can also impact on ecosystems in adverse ways. For this reason, many consider small-scale hydro a more environmentally-friendly option, and especially suitable for communities in remote locations..</p>
+        </div>
+    
+        <br><br>
+    
+      
         <img src="solar1.webp" class="sidepic" alt="solar panelling">
         <button type="button" class="collapsible">Solar Power</button>
-          <div class="content">
-            <p>Solar energy is the most abundant of all energy resources and can even be harnessed in cloudy weather. The rate at which solar energy is intercepted by the Earth is about 10,000 times greater than the rate at which humankind consumes energy.
-
-              Solar technologies can deliver heat, cooling, natural lighting, electricity, and fuels for a host of applications. Solar technologies convert sunlight into electrical energy either through photovoltaic panels or through mirrors that concentrate solar radiation.
-              
-              Although not all countries are equally endowed with solar energy, a significant contribution to the energy mix from direct solar energy is possible for every country.
-              
-              The cost of manufacturing solar panels has plummeted dramatically in the last decade, making them not only affordable but often the cheapest form of electricity. Solar panels have a lifespan of roughly 30 years, and come in variety of shades depending on the type of material used in manufacturing.</p>
-          </div>
-          <br>
-          <br>
+        <div class="content">
+          <p>Solar energy is the most abundant of all energy resources and can even be harnessed in cloudy weather. The rate at which solar energy is intercepted by the Earth is about 10,000 times greater than the rate at which humankind consumes energy.
+    
+            Solar technologies can deliver heat, cooling, natural lighting, electricity, and fuels for a host of applications. Solar technologies convert sunlight into electrical energy either through photovoltaic panels or through mirrors that concentrate solar radiation.
+    
+            Although not all countries are equally endowed with solar energy, a significant contribution to the energy mix from direct solar energy is possible for every country.
+    
+            The cost of manufacturing solar panels has plummeted dramatically in the last decade, making them not only affordable but often the cheapest form of electricity. Solar panels have a lifespan of roughly 30 years, and come in a variety of shades depending on the type of material used in manufacturing.</p>
+        </div>
+        <br><br>
+    
+     
         <img src="wave.jpg" class="sidepic" alt="wave power illustration">
         <button type="button" class="collapsible">Wave Power</button>
-          <div class="content">
-            <p>Ocean energy derives from technologies that use the kinetic and thermal energy of seawater - waves or currents for instance -  to produce electricity or heat.
-
-              Ocean energy systems are still at an early stage of development, with a number of prototype wave and tidal current devices being explored. The theoretical potential for ocean energy easily exceeds present human energy requirements.</p>
-          </div>
-          <br>
-          <br>
+        <div class="content">
+          <p>Ocean energy derives from technologies that use the kinetic and thermal energy of seawater - waves or currents for instance - to produce electricity or heat.
+    
+          <p>Ocean energy systems are still at an early stage of development, with a number of prototype wave and tidal current devices being explored. The theoretical potential for ocean energy easily exceeds present human energy requirements.</p>
+          
+        </div>
+        <br><br>
       </div>
     </div>
 
@@ -146,6 +152,14 @@
       <button class="nav-button prev">&#8249;</button>
       <button class="nav-button next">&#8250;</button>
     </div>
+    
+  
+
+<footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+  <div class="container text-center">
+    <small>Copyright &copy; Your Website</small>
+  </div>
+</footer>
     
     
     <script>
@@ -223,24 +237,24 @@ const nextBtn = document.querySelector('.next');
 
 const testimonials = [
     {
-        name: "John Doe",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        name: "Oliwia Grochowska",
+        text: "Choosing Rolsa Technologies for our solar installation was one of the best decisions we've made. The entire process was smooth and efficient. From the initial consultation to the installation, their team was professional, informative, and always available to answer our questions. Our energy bills have significantly decreased, and we're proud to be part of a more sustainable future. Thank you, Rolsa Technologies!"
     },
     {
         name: "Jane Smith",
-        text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        text: "Rolsa Technologies exceeded our expectations in every way. As a business owner, energy efficiency is critical, and the team at Rolsa made it possible for us to reduce our carbon footprint while saving money on energy costs. Their attention to detail and commitment to quality were evident at every stage. I recommend them to anyone looking for reliable solar solutions!"
     },
     {
         name: "Bob Johnson",
-        text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        text: "I can’t say enough good things about Rolsa Technologies! Their team was incredibly knowledgeable and helped us find the perfect solar solution for our home. The installation was quick, and we’ve already noticed a dramatic reduction in our electricity bills. We’re so happy with the results!"
     },
     {
         name: "Alice Brown",
-        text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        text: "We had some doubts about switching to solar, but Rolsa Technologies provided us with all the information we needed to make an informed decision. Their team worked with us to find the right system for our needs and delivered on every promise. Our energy bills have been cut in half, and we’ve even had some nice compliments from neighbors!"
     },
     {
         name: "Charlie Davis",
-        text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+        text: "I am beyond impressed with Rolsa Technologies! From the moment I reached out, their team was extremely helpful and patient in answering all my questions. The installation was smooth, and they walked me through every step of the process. Since then, I've noticed a huge reduction in my energy bills, and it feels great knowing I’m contributing to a greener planet. Rolsa made going solar easy and rewarding!"
     }
 ];
 
@@ -297,6 +311,19 @@ window.addEventListener('resize', handleResize);
 
 // Initial setup
 updateCarousel();
+
+document.getElementById("sidebar-toggle").addEventListener("click", function() {
+    var sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("sidebar-hidden");
+    
+    // Change button text based on sidebar visibility
+    var button = document.getElementById("sidebar-toggle");
+    if (sidebar.classList.contains("sidebar-hidden")) {
+      button.textContent = "Toggle Sidebar"; // Show the button to open the sidebar
+    } else {
+      button.textContent = "Toggle Sidebar"; // Show the button to close the sidebar
+    }
+  });
       
     </script>
   </body>
