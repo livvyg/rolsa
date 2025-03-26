@@ -3,16 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="icon.png" />
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="index.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js library -->
   </head>
-   <body>
+  <body>
     <nav class="navbar navbar-inverse justify-content-center">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -21,7 +20,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <img class="logo" src="icon.png" alt="logo" width="50px">
+          <img class="logo" src="icon.png" alt="logo" width="50px" />
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
@@ -37,6 +36,7 @@
         </div>
       </div>
     </nav>
+
     <div class="container main1">
       <div class="row">
         <div class="col-xs-6">
@@ -50,15 +50,104 @@
       </div>
     </div>
 
-    <!-- Sidebar -->
+    <!-- Sidebar for Live Green Energy News -->
     <div class="sidebar">
       <h2>Live Green Market News</h2>
-      <div id="root"></div>
-      <form action="https://www.google.com">
-        <input class="readmore2" type="submit" value="Read More"/>
-      </form>
+      <ul id="news-list">
+      <p>Enter the stock symbol below to fetch the stock price data and see a graph.</p>
+      <input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., AAPL)" class="form-control" />
+      <button onclick="fetchStockData()" class="btn btn-primary mt-3">Get Stock Data</button>
+      <h3>Stock Data Graph</h3>
+      <canvas id="stockChart" width="400" height="200"></canvas>
+      </ul>
     </div>
-    
-  </body>
 
+    
+    <script>
+      // Function to fetch stock data and display it
+      function fetchStockData() {
+        const symbol = document.getElementById("stockSymbol").value;
+        if (!symbol) {
+          alert("Please enter a stock symbol");
+          return;
+        }
+
+        // Fetch stock data from the server (assuming your backend is running at localhost:5000)
+        fetch(`http://localhost:5000/api/stock/${symbol}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log("Stock data:", data);
+            displayChart(data);
+          })
+          .catch(err => {
+            console.error("Error fetching stock data:", err);
+          });
+      }
+
+      // Function to display the stock data in a chart
+      function displayChart(data) {
+        const ctx = document.getElementById("stockChart");
+        const chartData = {
+          labels: ["Open", "High", "Low", "Current"], // Labels for the chart (Open, High, Low, Current)
+          datasets: [{
+            label: 'Stock Prices',
+            data: [data.o, data.h, data.l, data.c], // Using Open, High, Low, Current prices
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            fill: true
+          }]
+        };
+
+        const config = {
+          type: 'line',
+          data: chartData,
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        };
+
+        // Create a new chart (if one exists, it will update)
+        if (window.myChart) {
+          window.myChart.destroy(); // Destroy previous chart if exists
+        }
+        window.myChart = new Chart(ctx, config);
+      }
+
+      // WebSocket for live green news
+      const socket = new WebSocket("ws://localhost:8080");
+
+      socket.onmessage = (event) => {
+        const newsList = document.getElementById("news-list");
+        const data = JSON.parse(event.data);
+
+        // Log the full received data to understand its structure
+        console.log("Received WebSocket Data:", data);
+
+        if (data && data.data) {
+          data.data.forEach((item) => {
+            const datetime = item.datetime ? new Date(item.datetime * 1000).toLocaleString() : "No date available";
+            const headline = item.headline || "No headline";
+            const summary = item.summary || "No summary";
+
+            // Create a new news item
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `<strong>${headline}</strong> - ${datetime} <p>${summary}</p>`;
+
+            // Add the new news item to the top of the list
+            newsList.prepend(listItem);
+          });
+        } else {
+          newsList.innerHTML = "<li>Waiting for live updates...</li>";
+        }
+      };
+
+      socket.onclose = () => {
+        console.log("WebSocket disconnected.");
+      };
+    </script>
+  </body>
 </html>

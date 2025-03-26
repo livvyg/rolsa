@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import StockNews from './StockNews'; // Import the StockNews component
+import StockNews from './StockNews'; // Import StockNews component
 
 const App = () => {
-  const [symbol, setSymbol] = useState("TSLA"); // Example: Tesla stock
+  const [symbol, setSymbol] = useState(""); // State for the stock symbol input
 
   return (
     <div>
+      <h1>Stock Price Viewer</h1>
       <input
         type="text"
         value={symbol}
         onChange={(e) => setSymbol(e.target.value)}
         placeholder="Enter stock symbol"
       />
-      <StockNews symbol={symbol} /> {/* Pass symbol prop to StockNews */}
+      {symbol && <StockNews symbol={symbol} />} {/* Only render StockNews if a symbol is entered */}
     </div>
   );
 };

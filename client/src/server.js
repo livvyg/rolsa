@@ -1,51 +1,40 @@
-// server.js
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
-const cors = require("cors"); // Import cors package
+const cors = require("cors");
 const app = express();
 
-// Use CORS middleware to allow all origins (you can restrict it to localhost:3000 if needed)
-app.use(cors());
+// Use CORS middleware to allow frontend access
+app.use(cors({ origin: "http://localhost:3000" }));
 
-// Hardcode the API key directly
-const ALPHA_VANTAGE_API_KEY = "53YAIQJC7MA3QVDO"; // Replace with your actual API key
+// Finnhub API Key
+const FINNHUB_API_KEY = "cvhsg9hr01qgkck5utn0cvhsg9hr01qgkck5utng";
 
-// Define a route to fetch stock data from Alpha Vantage
+if (!FINNHUB_API_KEY) {
+  console.error("Finnhub API key is missing!");
+  process.exit(1);
+}
+
+// Endpoint to fetch stock data
 app.get("/api/stock/:symbol", async (req, res) => {
   const { symbol } = req.params;
 
-  // Validate the symbol
-  if (!symbol) {
-    return res.status(400).json({ message: "Stock symbol is required." });
-  }
-
   try {
-    const response = await axios.get("https://www.alphavantage.co/query", {
+    // Fetch stock data for the given symbol
+    const response = await axios.get(`https://finnhub.io/api/v1/quote`, {
       params: {
-        function: "TIME_SERIES_DAILY", // Using daily data
-        symbol,
-        apikey: ALPHA_VANTAGE_API_KEY, // Directly use the hardcoded API key
-      },
+        symbol: symbol,
+        token: FINNHUB_API_KEY
+      }
     });
 
-    // Log the full response for debugging
-    console.log('Full Alpha Vantage Response:', response.data);
-
-    // Check if data for the requested stock symbol exists
-    if (response.data["Time Series (Daily)"]) {
-      res.json(response.data);
-    } else {
-      // If no time series data is returned
-      res.status(404).json({ message: "Stock data not found for the specified symbol." });
-    }
+    res.json(response.data);  // Send stock data back to the frontend
   } catch (error) {
-    console.error("Error:", error.message);
-    res.status(500).json({ message: "Failed to fetch stock data." });
+    console.error(error);
+    res.status(500).json({ message: "Error fetching stock data" });
   }
 });
 
-// Define the port where the server should listen
+// Start the server
 const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+app.listen(port, () => console.log(`Server running on port ${port}`));

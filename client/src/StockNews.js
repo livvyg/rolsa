@@ -1,13 +1,17 @@
-// StockNews.js
 import React, { useEffect, useState } from "react";
-import axios from "axios"; // To make API requests
+import axios from "axios";
+import { Line } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
+
+// Register necessary chart components
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const StockNews = ({ symbol }) => {
   const [stockData, setStockData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch stock data whenever the symbol changes
+  // Fetch stock data when the symbol changes
   useEffect(() => {
     const fetchStockData = async () => {
       try {
@@ -24,9 +28,9 @@ const StockNews = ({ symbol }) => {
     if (symbol) {
       fetchStockData();
     }
-  }, [symbol]); // Re-fetch when symbol changes
+  }, [symbol]);
 
-  // Show loading or error state
+  // Render loading or error message
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -35,15 +39,24 @@ const StockNews = ({ symbol }) => {
     return <div>{error}</div>;
   }
 
-  // Render the stock data
+  // If stock data is available, render it as a chart
+  const data = {
+    labels: ["Open", "High", "Low", "Current"], // Labels for data points
+    datasets: [
+      {
+        label: `Stock Price for ${symbol}`,
+        data: [stockData.o, stockData.h, stockData.l, stockData.c], // Open, High, Low, Current prices
+        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(75,192,192,0.2)",
+        fill: true
+      }
+    ]
+  };
+
   return (
     <div>
       <h3>Stock Data for {symbol}</h3>
-      {stockData ? (
-        <pre>{JSON.stringify(stockData, null, 2)}</pre> // Display raw stock data (you can format it)
-      ) : (
-        <p>No data available.</p>
-      )}
+      <Line data={data} />
     </div>
   );
 };
