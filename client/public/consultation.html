@@ -26,7 +26,7 @@
           <ul class="nav navbar-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="cfc.html">Carbon Footprint Calculator</a></li>
-            <li  class="active"><a href="consultation.html">Book Consultation</a></li>
+            <li class="active"><a href="consultation.html">Book Consultation</a></li>
             <li><a href="#">Green Energy Market News</a></li>
             <li><a href="about.html">About</a></li>
           </ul>
@@ -36,3 +36,32 @@
         </div>
       </div>
     </nav>
+
+    <div class="container">
+      <h2>Book a Consultation</h2>
+      <form action="submit_consultation.php" method="POST">
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" class="form-control" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="date">Preferred Consultation Date:</label>
+          <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
