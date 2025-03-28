@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse justify-content-center">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <img class="logo" src="icon.png" alt="logo" width="50px" />
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="cfc.html">Carbon Footprint Calculator</a></li>
+            <li><a href="#">Book Consultation</a></li>
+            <li><a href="#">Green Energy Market News</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="account.php"><span class="glyphicon glyphicon-log-in"></span> Account</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <button id="sidebar-toggle" class="btn btn-info">Toggle Sidebar</button>
+    <div class="container main1">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1>Solar Panels like <em>nowhere</em> else</h1>
+          <p>Solar panels turn the sun's energy into usable electricity. Solar panels – also known as <strong>photovoltaics (PV)</strong> – contain electrons, which start moving when hit with direct sunlight. The moving electrons create an electric current, kind of like a stream of energy, which is then channelled and turned into usable electricity. The electricity is then sent out of the solar panel through wires, ready to power your gadgets, lights or even your electric vehicle, or it can be sent back to the grid, with suppliers paying you for that energy. <strong>Rolsa Technologies</strong> offers<em> cutting edge</em></strong> solar panels starting from just £6000 </p>
+          <form action="https://www.google.com">
+            <input class="readmore1" type="submit" value="Read More"/>
+          </form>
+        </div>
+        <img class="sidepic" src="solar.jpg" alt="house with solar panels"/>
+      </div>
+    </div>
+
+  
+    <div class="sidebar">
+      <h2>Live Green Market News</h2>
+      <ul id="news-list">
+      <p>Enter the stock symbol below to fetch the stock price data and see a graph.</p>
+      <input type="text" id="stockSymbol" placeholder="Enter stock symbol (e.g., AAPL)" class="form-control" />
+      <button onclick="fetchStockData()" class="getdata">Get Stock Data</button>
+      <h3>Stock Data Graph</h3>
+      <canvas id="stockChart" width="400" height="200"></canvas>
+      </ul>
+    </div>
+
+    <div class="container main2">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1>Alternatives to your alternative</h1>
+          <p>Renewable energy is energy derived from natural sources that are replenished at a higher rate than they are consumed. Sunlight and wind, for example, are such sources that are constantly being replenished. Renewable energy sources are plentiful and all around us. Fossil fuels - coal, oil and gas - on the other hand, are <strong>non-renewable</strong> resources that take hundreds of millions of years to form. </p>
+          <p>Fossil fuels, when burned to produce energy, cause harmful greenhouse gas emissions, such as carbon dioxide. Generating renewable energy creates far lower emissions than burning fossil fuels. Transitioning from fossil fuels, which currently account for the lion’s share of emissions, to renewable energy is key to addressing the climate crisis.</p>
+          <p>Renewables are now cheaper in most countries, and generate three times more jobs than fossil fuels.</p>
+          <p>The global renewable energy market, valued at USD 954 billion in 2023, is projected to grow to USD 1,574.17 billion by 2032, with a CAGR of 5.56%. China is a major player, accounting for a large share of global renewable capacity deployment.</p>
+          <input class="readmore1" type="submit" value="Read More"/>
+        </div>
+        <img src="hydro.png" class="sidepic" alt="hydroelectric power dam">
+    
+      
+        <button type="button" class="collapsible">Hydro Power</button>
+        <div class="content">
+          <p>Hydropower harnesses the energy of water moving from higher to lower elevations. It can be generated from reservoirs and rivers. Reservoir hydropower plants rely on stored water in a reservoir, while run-of-river hydropower plants harness energy from the available flow of the river.
+    
+            Hydropower reservoirs often have multiple uses - providing drinking water, water for irrigation, flood and drought control, navigation services, as well as energy supply.
+    
+            Hydropower currently is the largest source of renewable energy in the electricity sector. It relies on generally stable rainfall patterns, and can be negatively impacted by climate-induced droughts or changes to ecosystems which impact rainfall patterns.
+    
+            The infrastructure needed to create hydropower can also impact on ecosystems in adverse ways. For this reason, many consider small-scale hydro a more environmentally-friendly option, and especially suitable for communities in remote locations..</p>
+        </div>
+    
+        <br><br>
+    
+      
+        <img src="solar1.webp" class="sidepic" alt="solar panelling">
+        <button type="button" class="collapsible">Solar Power</button>
+        <div class="content">
+          <p>Solar energy is the most abundant of all energy resources and can even be harnessed in cloudy weather. The rate at which solar energy is intercepted by the Earth is about 10,000 times greater than the rate at which humankind consumes energy.
+    
+            Solar technologies can deliver heat, cooling, natural lighting, electricity, and fuels for a host of applications. Solar technologies convert sunlight into electrical energy either through photovoltaic panels or through mirrors that concentrate solar radiation.
+    
+            Although not all countries are equally endowed with solar energy, a significant contribution to the energy mix from direct solar energy is possible for every country.
+    
+            The cost of manufacturing solar panels has plummeted dramatically in the last decade, making them not only affordable but often the cheapest form of electricity. Solar panels have a lifespan of roughly 30 years, and come in a variety of shades depending on the type of material used in manufacturing.</p>
+        </div>
+        <br><br>
+    
+     
+        <img src="wave.jpg" class="sidepic" alt="wave power illustration">
+        <button type="button" class="collapsible">Wave Power</button>
+        <div class="content">
+          <p>Ocean energy derives from technologies that use the kinetic and thermal energy of seawater - waves or currents for instance - to produce electricity or heat.
+    
+          <p>Ocean energy systems are still at an early stage of development, with a number of prototype wave and tidal current devices being explored. The theoretical potential for ocean energy easily exceeds present human energy requirements.</p>
+          
+        </div>
+        <br><br>
+      </div>
+    </div>
+
+    <div class="container main3">
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <div class="stat1">
+            <h1>68%</h1>
+            <p>Decrease in carbon footprint using the CF calculator</p>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="stat2">
+            <h1>43%</h1>
+            <p>Decrease in energy consumption with Rolsa solar panels</p>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="stat3">
+            <h1>£1.1M</h1>
+            <p>Estimated Rolsa customer savings</p>
+          </div>
+        </div> 
+        <div class="col-xs-6 col-md-3">
+          <div class="stat4">
+            <h1>43,770</h1>
+            <p>Satisfied customers</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="carousel-container main4">
+      <div class="carousel">
+          
+      </div>
+      <button class="nav-button prev">&#8249;</button>
+      <button class="nav-button next">&#8250;</button>
+    </div>
+    
+  
+
+<footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+  <div class="container text-center">
+    <img src="icon.png" alt="logo" width="50px">
+    <small>Copyright &copy; Rolsa Technologies</small>
+  </div>
+</footer>
+    
+    
+    <script>
+      
+      function fetchStockData() {
+        const symbol = document.getElementById("stockSymbol").value;
+        if (!symbol) {
+          alert("Please enter a stock symbol");
+          return;
+        }
+
+       
+        fetch(`http://localhost:5000/api/stock/${symbol}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log("Stock data:", data);
+            displayChart(data);
+          })
+          .catch(err => {
+            console.error("Error fetching stock data:", err);
+          });
+      }
+
+      
+      function displayChart(data) {
+        const ctx = document.getElementById("stockChart");
+        const chartData = {
+          labels: ["Open", "High", "Low", "Current"], 
+          datasets: [{
+            label: 'Stock Prices',
+            data: [data.o, data.h, data.l, data.c], 
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            fill: true
+          }]
+        };
+
+        const config = {
+          type: 'line',
+          data: chartData,
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        };
+
+        
+        if (window.myChart) {
+          window.myChart.destroy(); 
+        }
+        window.myChart = new Chart(ctx, config);
+      }
+
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+}
+
+const carousel = document.querySelector('.carousel');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+
+const testimonials = [
+    {
+        name: "Oliwia Grochowska",
+        text: "Choosing Rolsa Technologies for our solar installation was one of the best decisions we've made. The entire process was smooth and efficient. From the initial consultation to the installation, their team was professional, informative, and always available to answer our questions. Our energy bills have significantly decreased, and we're proud to be part of a more sustainable future. Thank you, Rolsa Technologies!"
+    },
+    {
+        name: "Jane Smith",
+        text: "Rolsa Technologies exceeded our expectations in every way. As a business owner, energy efficiency is critical, and the team at Rolsa made it possible for us to reduce our carbon footprint while saving money on energy costs. Their attention to detail and commitment to quality were evident at every stage. I recommend them to anyone looking for reliable solar solutions!"
+    },
+    {
+        name: "Bob Johnson",
+        text: "I can’t say enough good things about Rolsa Technologies! Their team was incredibly knowledgeable and helped us find the perfect solar solution for our home. The installation was quick, and we’ve already noticed a dramatic reduction in our electricity bills. We’re so happy with the results!"
+    },
+    {
+        name: "Alice Brown",
+        text: "We had some doubts about switching to solar, but Rolsa Technologies provided us with all the information we needed to make an informed decision. Their team worked with us to find the right system for our needs and delivered on every promise. Our energy bills have been cut in half, and we’ve even had some nice compliments from neighbors!"
+    },
+    {
+        name: "Charlie Davis",
+        text: "I am beyond impressed with Rolsa Technologies! From the moment I reached out, their team was extremely helpful and patient in answering all my questions. The installation was smooth, and they walked me through every step of the process. Since then, I've noticed a huge reduction in my energy bills, and it feels great knowing I’m contributing to a greener planet. Rolsa made going solar easy and rewarding!"
+    }
+];
+
+let currentIndex = 0;
+
+function createTestimonialElement(testimonial, index) {
+    const div = document.createElement('div');
+    div.className = 'testimonial';
+    div.innerHTML = `
+        <img src="https://picsum.photos/80?random=${index}" alt="${testimonial.name}">
+        <h3>${testimonial.name}</h3>
+        <p>${testimonial.text}</p>
+    `;
+    return div;
+}
+
+function updateCarousel() {
+    carousel.innerHTML = '';
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+        carousel.appendChild(createTestimonialElement(testimonials[currentIndex], currentIndex));
+    } else {
+        const prevIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+        const nextIndex = (currentIndex + 1) % testimonials.length;
+
+        carousel.appendChild(createTestimonialElement(testimonials[prevIndex], prevIndex));
+        const activeTestimonial = createTestimonialElement(testimonials[currentIndex], currentIndex);
+        activeTestimonial.classList.add('active');
+        carousel.appendChild(activeTestimonial);
+        carousel.appendChild(createTestimonialElement(testimonials[nextIndex], nextIndex));
+    }
+}
+
+function showNext() {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    updateCarousel();
+}
+
+function showPrev() {
+    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    updateCarousel();
+}
+
+nextBtn.addEventListener('click', showNext);
+prevBtn.addEventListener('click', showPrev);
+
+// Responsive behavior
+function handleResize() {
+    updateCarousel();
+}
+
+window.addEventListener('resize', handleResize);
+
+// Initial setup
+updateCarousel();
+
+document.getElementById("sidebar-toggle").addEventListener("click", function() {
+    var sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("sidebar-hidden");
+    
+    // Change button text based on sidebar visibility
+    var button = document.getElementById("sidebar-toggle");
+    if (sidebar.classList.contains("sidebar-hidden")) {
+      button.textContent = "Toggle Sidebar"; // Show the button to open the sidebar
+    } else {
+      button.textContent = "Toggle Sidebar"; // Show the button to close the sidebar
+    }
+  });
+
+    </script>
+  </body>
+</html>

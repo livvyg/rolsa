@@ -1,3 +1,63 @@
+<?php
+include '../database/db_connect.php';
+
+$message = "";
+$toastClass = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $firstname = $_POST['firstname-input'];
+    $email = $_POST['email-input'];
+    $password = $_POST['password-input'];
+
+    // Check if email already exists
+    $checkEmailStmt = $conn->prepare("SELECT email FROM userdata WHERE email = ?");
+    $checkEmailStmt->bind_param("s", $email);
+    $checkEmailStmt->execute();
+    $checkEmailStmt->store_result();
+
+    if ($checkEmailStmt->num_rows > 0) {
+        $message = "Email ID already exists";
+        $toastClass = "#007bff"; // Primary color
+    } else {
+        // Prepare and bind
+        $stmt = $conn->prepare("INSERT INTO userdata (firstname, email, password) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $firstname, $email, $password);
+
+        if ($stmt->execute()) {
+            $message = "Account created successfully";
+            $toastClass = "#28a745"; // Success color
+        } else {
+            $message = "Error: " . $stmt->error;
+            $toastClass = "#dc3545"; // Danger color
+        }
+
+        $stmt->close();
+    }
+
+    $checkEmailStmt->close();
+    $conn->close();
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,10 +92,10 @@
             <li><a href="cfc.html">Carbon Footprint Calculator</a></li>
             <li><a href="#">Book Consultation</a></li>
             <li><a href="#">Green Energy Market News</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="about.html">About</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="account.html"><span class="glyphicon glyphicon-log-in"></span> Account</a></li>
+            <li class="active"><a href="account.php"><span class="glyphicon glyphicon-log-in"></span> Account</a></li>
           </ul>
         </div>
       </div>
@@ -45,7 +105,7 @@
         <div class="wrapper"> 
             <h1>Sign Up</h1>
             <p id="error-message"></p>
-            <form action="register.php" method="post" id="form">
+            <form method="post" id="form">
                 <div>
                     <label for="firstname-input"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg> First Name</label>
                     <input required type="text" name="firstname" id="firstname-input" placeholder="First Name" aria-label="First Name">
