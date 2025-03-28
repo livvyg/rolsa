@@ -142,7 +142,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <span class="invalid-feedback"><?php echo $firstname_err; ?></span>
     </div>    
 
-    <!-- Add the Email input field -->
     <div class="form-group">
         <label>Email</label>
         <input type="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
