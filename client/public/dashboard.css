@@ -1,6 +1,6 @@
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #FE9C8A;
+    background-color: #F3C178;
   }
   
   .logo {
@@ -32,3 +32,24 @@ body {
     color: green !important;
   }
   
+  footer {
+    background-color: #D8F1A0;
+  }
+  
+  
+  .row.content {height: 550px}
+    
+  
+  .sidenav {
+    padding: 20px;
+    background-color: #FE9C8A;
+    height: 100%;
+    color:black;
+  }
+
+
+      
+ 
+  @media screen and (max-width: 767px) {
+    .row.content {height: auto;} 
+  }
