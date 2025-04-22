@@ -98,6 +98,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="theme-color" content="#000000" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="account.css" />
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+<div style="background-color: #D8F1A0" class="elfsight-app-f5b27d08-c1d3-4f99-ae23-145b20b92581" data-elfsight-app-lazy></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 

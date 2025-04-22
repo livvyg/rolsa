@@ -1,85 +1,99 @@
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #f3c178;
-  }
-  
-  .logo {
-    padding: 5px;
-    margin-right: 5px;
-    margin-left: -5px;
-  }
-  
-  .navbar {
-    background-color: #D8F1A0;
-    border: #D8F1A0;
-    width: 100vw;
-    
-  }
-  
-  li a {
-    color: black !important;
-  }
-  
-  .active a {
-    color: rgb(255, 255, 255) !important;
-  }
-  
-  li a {
-    color: blue;
-  }
-  
-  li a:hover {
-    color: green !important;
-  }
-  
-
-  .container {
-    width: 50%;
-    margin: 50px auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #f3c178;
 }
 
+.logo {
+  padding: 5px;
+  margin-right: 5px;
+  margin-left: -5px;
+}
+
+.navbar {
+  background-color: #D8F1A0;
+  border: #D8F1A0;
+  width: 100vw;
+  
+}
+
+li a {
+  color: black !important;
+}
+
+.active a {
+  color: rgb(255, 255, 255) !important;
+}
+
+li a {
+  color: blue;
+}
+
+li a:hover {
+  color: green !important;
+}
+
+
+.container {
+  width: 50%;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-fluid1 {
+background: #ffffff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+flex-grow: 1;
+}
 input, button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
 }
 
 button {
-    background: #D8F1A0;
-    color: white;
-    border: none;
-    cursor: pointer;
+  background: #D8F1A0;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 canvas {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .row.content {
-    height: 550px;
+  height: 550px;
+  
 }
 
 .sidenav {
-    background-color: #fe9c8a !important;
-    height: 100%;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-
-    
+width: 250px;
+background-color: #fe9c8a !important;
+padding: 10px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .activeprofile a {
-    color: rgb(45, 62, 139) !important;
-    font-weight: 800;
+  color: rgb(45, 62, 139) !important;
+  font-weight: 800;
 }
 
 
+.profile-layout {
+display: flex;
+justify-content: center;
+align-items: flex-start;
+gap: 20px;
+margin: 50px auto;
+max-width: 1200px;
+}
