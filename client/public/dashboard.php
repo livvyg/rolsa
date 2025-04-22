@@ -75,7 +75,7 @@ if ($stmt = mysqli_prepare($link, $sql)) {
     <div class="sidenav">
       <ul class="nav nav-pills nav-stacked">
         <li class="activeprofile"><a href="dashboard.php">Profile</a></li>
-        <li class="notactive"><a href="security.html">Security</a></li>
+        <li class="notactive"><a href="security.php">Security</a></li>
         <li class="notactive"><a href="notifications.html">Notifications</a></li>
         <li class="notactive"><a href="account.php">Log Out</a></li>
       </ul><br>

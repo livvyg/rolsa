@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -54,14 +55,22 @@
     </div>
   
     <div class="container-fluid1">
-      <h1>Profile</h1>
+      <h1>Security Settings</h1>
       <hr class="solid">
-      <p>Full Name: </p>
-      <hr class="solid">
-      <p>Email Address:</p>
-      <hr class="solid">
-      <p>Title: Customer</p>
-      <hr class="solid">
+      <h4>Change Password</h4>
+      <form method="post" action="passwordchange.php">
+    <label for="old_password">Old Password:</label>
+    <input type="password" id="old_password" name="old_password" required><br><br>
+
+    <label for="new_password">New Password:</label>
+    <input type="password" id="new_password" name="new_password" required><br><br>
+
+    <label for="confirm_password">Confirm New Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+
+    <button type="submit">Change Password</button>
+</form>
+
   
       <h1>Languages</h1>
       <h4>Choose what language to display in</h4>
