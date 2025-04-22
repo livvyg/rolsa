@@ -34,6 +34,7 @@ body {
   
   footer {
     background-color: #D8F1A0;
+    padding: 10px;
   }
   
   
@@ -53,3 +54,7 @@ body {
   @media screen and (max-width: 767px) {
     .row.content {height: auto;} 
   }
+
+.col-sm-9 {
+  background-color: #F3C178;
+}
