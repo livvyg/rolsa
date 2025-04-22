@@ -1,5 +1,28 @@
 
+<?php
+require_once "config.php"; // database connection
+session_start();
 
+// Check if the user is logged in
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
+
+$user_id = $_SESSION["id"];
+$sql = "SELECT firstname, email FROM persons WHERE PersonID = ?";
+
+if ($stmt = mysqli_prepare($link, $sql)) {
+    mysqli_stmt_bind_param($stmt, "i", $user_id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $firstname, $email);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+} else {
+    $firstname = "Unknown";
+    $email = "Unknown";
+}
+?>
 
 
 
@@ -51,7 +74,7 @@
   <div class="profile-layout">
     <div class="sidenav">
       <ul class="nav nav-pills nav-stacked">
-        <li class="activeprofile"><a href="dashboard.html">Profile</a></li>
+        <li class="activeprofile"><a href="dashboard.php">Profile</a></li>
         <li class="notactive"><a href="security.html">Security</a></li>
         <li class="notactive"><a href="notifications.html">Notifications</a></li>
         <li class="notactive"><a href="account.php">Log Out</a></li>
@@ -61,9 +84,9 @@
     <div class="container-fluid1">
       <h1>Profile</h1>
       <hr class="solid">
-      <p>Full Name:  </p>
+      <p>Full Name: <?php echo htmlspecialchars($firstname); ?> </p>
       <hr class="solid">
-      <p>Email Address:</p>
+      <p>Email Address: <?php echo htmlspecialchars($email); ?></p>
       <hr class="solid">
       <p>Title: Customer</p>
       <hr class="solid">

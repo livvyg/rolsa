@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             }
 
                             // Redirect to dashboard
-                            header("location: dashboard.html");
+                            header("location: dashboard.php");
                             exit;
                         } else {
                             $password_err = "The password you entered was not valid.";
