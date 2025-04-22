@@ -37,4 +37,13 @@ body {
     color: green !important;
   }
 
-  
+  .main1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #F3C17B;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100vw;
+    float: left;
+  }
