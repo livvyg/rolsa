@@ -38,7 +38,7 @@
     </nav>
     <div class="container">
       <h2>Book a Consultation</h2>
-      <form action="#" method="POST">
+      <form action="submit_consultation.php" method="POST">
         <div class="form-group">
           <label for="name">Full Name:</label>
           <input type="text" class="form-control" id="name" name="name" required>
@@ -53,7 +53,7 @@
         </div>
         <div class="form-group">
           <label for="date">Preferred Consultation Date:</label>
-          <input type="date" class="form-control" id="date" name="date" required>
+          <input min="2025-04-22" max="2025-12-31" type="date" class="form-control" id="date" name="date" required>
         </div>
         <div class="form-group">
           <label for="message">Message:</label>
