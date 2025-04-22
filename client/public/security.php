@@ -48,8 +48,8 @@
     <div class="sidenav">
       <ul class="nav nav-pills nav-stacked">
         <li ><a href="dashboard.php">Profile</a></li>
-        <li class="activeprofile"><a href="security.html">Security</a></li>
-        <li class="notactive"><a href="notifications.html">Notifications</a></li>
+        <li class="activeprofile"><a href="security.php">Security</a></li>
+        <li class="notactive"><a href="notifications.php">Bookings</a></li>
         <li class="notactive"><a href="account.php">Log Out</a></li>
       </ul><br>
     </div>
@@ -72,10 +72,7 @@
 </form>
 
   
-      <h1>Languages</h1>
-      <h4>Choose what language to display in</h4>
-      <hr class="solid">
-      <p>Language: </p>
+    
       
     </div>
   </div>

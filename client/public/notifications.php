@@ -1,3 +1,32 @@
+<?php
+require_once "config2.php"; // database connection
+session_start();
+
+
+
+// Check if the user is logged in
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
+
+$user_id = $_SESSION["id"];
+$sql = "SELECT date, email FROM bookings WHERE id = ?";
+
+if ($stmt = mysqli_prepare($link, $sql)) {
+    mysqli_stmt_bind_param($stmt, "i", $user_id);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $date, $email);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+} else {
+    $date = "Unknown";
+    $email = "Unknown";
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,20 +76,17 @@
       <ul class="nav nav-pills nav-stacked">
         <li><a href="dashboard.php">Profile</a></li>
         <li><a href="security.php">Security</a></li>
-        <li class="activeprofile"><a href="notifications.html">Notifications</a></li>
+        <li class="activeprofile"><a href="notifications.php">Bookings</a></li>
         <li><a href="account.php">Log Out</a></li>
       </ul><br>
     </div>
   
     <div class="container-fluid1">
-      <h1>Profile</h1>
+      <h1>Your Bookings</h1>
       <hr class="solid">
-      <p>Full Name: </p>
+      <p>Date:<?php echo htmlspecialchars($date); ?></p>
       <hr class="solid">
-      <p>Email Address:</p>
-      <hr class="solid">
-      <p>Title: Customer</p>
-      <hr class="solid">
+   
     </div>
   </div>
   
