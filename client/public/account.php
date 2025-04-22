@@ -122,7 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <li><a href="index.html">Home</a></li>
             <li><a href="cfc.html">Carbon Footprint Calculator</a></li>
             <li><a href="consultation.html">Book Consultation</a></li>
-            <li><a href="#">Green Energy Market News</a></li>
+            <li><a href="marketnews.html">Green Energy Market News</a></li>
             <li><a href="about.html">About</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
