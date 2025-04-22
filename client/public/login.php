@@ -1,12 +1,16 @@
 <?php
-// Include config file
+// The configuration file
 require_once "config.php";
 
-// Define variables and initialize with empty values
+// Start session if not already started
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 $email = $password = "";
 $email_err = $password_err = "";
 
-// Processing form data when form is submitted
+// Process submitted form data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate email
@@ -23,62 +27,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = trim($_POST["password"]);
     }
 
-    // Check input errors before querying the database
+    // Proceed if no validation errors
     if (empty($email_err) && empty($password_err)) {
 
-        // Prepare a select statement to find the user
         $sql = "SELECT PersonID, email, password FROM persons WHERE email = ?";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
-            // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
-
-            // Set the parameter
             $param_email = $email;
 
-            // Execute the statement
             if (mysqli_stmt_execute($stmt)) {
-                // Store result
                 mysqli_stmt_store_result($stmt);
 
-                // Check if the email exists in the database
                 if (mysqli_stmt_num_rows($stmt) == 1) {
-                    // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
 
-                    // Fetch the result
                     if (mysqli_stmt_fetch($stmt)) {
-                        // Check if the password is correct
                         if (password_verify($password, $hashed_password)) {
                             // Password is correct, start a new session
-                            session_start();
-
-                            // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
 
-                            // Redirect user to the dashboard page
+                            // Check if "Remember Me" is selected
+                            if (!empty($_POST["remember"])) {
+                                $token = bin2hex(random_bytes(16));
+                                $expiry = date('Y-m-d H:i:s', strtotime('+30 days'));
+
+                                // Insert token into database
+                                $insert_token_sql = "INSERT INTO user_tokens (user_id, token, expiry) VALUES (?, ?, ?)";
+                                if ($insert_stmt = mysqli_prepare($link, $insert_token_sql)) {
+                                    mysqli_stmt_bind_param($insert_stmt, "iss", $id, $token, $expiry);
+                                    mysqli_stmt_execute($insert_stmt);
+                                    mysqli_stmt_close($insert_stmt);
+                                }
+
+                                // Set cookie for 30 days
+                                setcookie("remember_token", $token, time() + (86400 * 30), "/");
+                            }
+
+                            // Redirect to dashboard
                             header("location: dashboard.html");
+                            exit;
                         } else {
-                            // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
                         }
                     }
                 } else {
-                    // Display an error message if email doesn't exist
                     $email_err = "No account found with that email.";
                 }
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
-            // Close statement
             mysqli_stmt_close($stmt);
         }
     }
 
-    // Close connection
     mysqli_close($link);
 }
 ?>
@@ -139,6 +144,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label>Password</label>
                 <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember Me</label>
             </div>
 
             <div class="form-group">

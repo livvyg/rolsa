@@ -1,12 +1,12 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Database configuration
+   
     $servername = "localhost";
     $username = "root";       // Default XAMPP username
     $password = "";           // Default XAMPP password is empty
     $dbname = "consultations";
 
-    // Create connection
+    
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection

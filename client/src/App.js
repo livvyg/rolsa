@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import StockNews from './StockNews'; // Import StockNews component
 
 const App = () => {
-  const [symbol, setSymbol] = useState(""); // State for the stock symbol input
+  const [symbol, setSymbol] = useState(""); 
 
   return (
     <div>

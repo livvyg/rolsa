@@ -4,7 +4,7 @@ const axios = require("axios");
 const cors = require("cors");
 const app = express();
 
-// Use CORS middleware to allow frontend access
+
 app.use(cors({ origin: "http://localhost:3000" }));
 
 // Finnhub API Key
