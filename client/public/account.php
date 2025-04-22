@@ -139,7 +139,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <div class="form-group">
-        <label>First Name</label>
+        <label>Full Name</label>
         <input type="text" name="firstname" class="form-control <?php echo (!empty($firstname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $firstname; ?>">
         <span class="invalid-feedback"><?php echo $firstname_err; ?></span>
     </div>    
